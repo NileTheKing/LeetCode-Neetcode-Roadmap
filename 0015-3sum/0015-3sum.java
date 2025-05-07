@@ -1,13 +1,14 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-        Set<List<Integer>> set = new HashSet<>();
+        List<List<Integer>> res = new ArrayList<>();
 
 
         //i,j,k triplet. Get i fixed to iterate over the array. -> so no skipping over missing cases
         for (int i = 0; i < nums.length - 2; i++) {//
             int left = nums[i];
             if (left > 0) break;
+            //if (nums[i] = nums[i + 1])
 
             int j  = i + 1;
             int k = nums.length - 1;
@@ -16,14 +17,19 @@ class Solution {
                 int right = nums[k];
 
                 if (left + mid + right == 0) {
-                    List<Integer> added = new ArrayList<>();
-                    added.add(left);
-                    added.add(mid);
-                    added.add(right);
+                    
+                    res.add(Arrays.asList(left, mid, right));
 
-                    set.add(added);
+                    while (j < k && nums[j] == nums[j+1]) {
+                        j++;
+                    }
+                    while (j < k && nums[k] == nums[k - 1]) {
+                        k--;
+                    }
+
                     
                     j++;
+                    k--;
                 }else if (left + mid + right < 0) {
                     j++;
                 }
@@ -31,10 +37,6 @@ class Solution {
                     k--;
                 }  
             }
-        }
-        List<List<Integer>> res = new ArrayList<>();
-        for (List<Integer> s : set) {
-            res.add(s);
         }
 
         return res;
