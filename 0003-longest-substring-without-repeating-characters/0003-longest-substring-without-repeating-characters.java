@@ -10,7 +10,7 @@ class Solution {
             //System.out.println("checking right: " + right);
             //if current substring(from left to right) has duplicate
             while (set.contains(c)) {
-                System.out.println("current " + c + " is contained");
+                //System.out.println("current " + c + " is contained");
                 set.remove(s.charAt(left));
                 left++;
             }
