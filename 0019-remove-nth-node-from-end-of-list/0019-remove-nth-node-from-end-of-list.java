@@ -10,38 +10,28 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode current = head;
-        int length = 0;
-        //길이 측정
-        while (current != null) {
-            current = current.next;
-            length++;
-            //System.out.println("length: " + length);
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode left = dummy;
+        ListNode right = dummy;
+
+        //n만큼 띄워놓기
+        for (int i = 0; i < n; i++) {
+            right = right.next;
         }
 
-        //만약 첫번쨰가 제거 대상일 경우
+        //끝까지 이동(맨끝)
+        //1->2->3에서 2를 지운다면
+        //l은 1을 r은 3에 위치중
+        while (right.next != null) {
+            left =left.next;
+            right = right.next;
+        }
         
-        
-        //길이5에서 2구하라고 하면 4번째거 구하는 것.
-        //그러니까 cnt는 4가 되어야 하고 5 - 2 + 1한 4
-        current = head;
-        int target = length - n + 1;
-        if (target == 1 && length > 1) {
-            head = head.next;
-            return head;
-        }
+        //이제 지우기
+        left.next = left.next.next;
 
-        int cnt = 1;
-        while (current != null) {
-            //System.out.println("count + 1, target:" + (cnt+1) + ", " + target);
-            if (cnt + 1 == target) {
-                current.next = current.next.next;
-                return head;
-            }
-            current = current.next;
-            cnt++;
-        }
-
-        return null;
+        return dummy.next;
     }
 }
