@@ -1,81 +1,99 @@
 class LRUCache {
-    Map<Integer, Node> cache;
-    Node head; //recent
-    Node tail; //least recent
-    int capa;
-    
+    int capacity;
+    int cnt;
+    Node head; //head가 mru
+    Node tail; // tail이 lru
+    HashMap<Integer, Node> map;
     public LRUCache(int capacity) {
-        this.cache = new HashMap<>();
-        this.capa = capacity;
-        this.head = new Node(0, 0);
-        this.tail= new Node(0, 0);
+        this.capacity = capacity;
+        cnt = 0;
+        map = new HashMap<>();
+        
+        //여기 헷갈림
+        this.head = new Node(0,0);
+        this.tail = new Node(0,0);
         this.head.next = this.tail;
         this.tail.prev = this.head;
     }
-    //newly added
-    private void remove(Node node) { //노드삭제
-        Node prev = node.prev;
-        Node nxt = node.next;
-        prev.next = nxt;
-        nxt.prev = prev;
-    }
-    private void insert(Node node) { //맨앞에 추가
-        Node next = this.head.next; //맨앞 다음거. 우리가 할거는 head->next를 head->node->next로
-        this.head.next = node;
-        node.prev = head;
-        node.next = next;
-        next.prev = node;
+    
+    //to do
+    public void insert(Node node) {
+        //lined list에 추가, lru 관리
+        // head, head.next, node를 연결 -> head node head.next로
 
+        Node ogFirst = head.next;
+        head.next = node;
+        node.prev = head;
+        node.next = ogFirst;
+        ogFirst.prev = node;
+
+        //cnt++;
+    }
+    public void remove(Node node) {
+        // tail.prev tail에서  tail.prev이 지울 node임
+        
+        Node prev = node.prev;
+        Node next = node.next;
+
+        prev.next = next;
+        next.prev = prev;
+
+        //map.remove(node.key);
+        //cnt--;
+    }
+    public int get(int key) {
+        if (!map.containsKey(key)) {
+            //System.out.println("cache doesn't have the  key: " + key);
+            return -1;
+        }
+        Node node = map.get(key);
+        remove(node);
+        insert(node);
+        return node.val;
     }
     
-    public int get(int key) {
-        if (cache.containsKey(key)) {
-            Node node = cache.get(key);
-            remove(node);
-            insert(node);
-            return node.value;
-        }
-        return -1;
-    }
     
     public void put(int key, int value) {
-        //있으면 지우고 새로만드는걸로 동일과정
-        if (cache.containsKey(key)) {
-            remove(cache.get(key));
+        if (map.containsKey(key)) {
+            remove(map.get(key));
+            map.remove(key);
+            cnt--;
         }
-        Node newNode = new Node(key, value);
-        cache.put(key, newNode);
-        insert(newNode);
-
-        if (cache.size() > capa) {
-            Node lru = this.tail.prev;
-            remove(lru);
-            cache.remove(lru.key);
+        else if (cnt == this.capacity) {
+            //System.out.println("capa over");
+            //System.out.println("lru removed:" + tail.val);
+            Node toRemove = tail.prev;
+            remove(toRemove);
+            map.remove(toRemove.key);
+            cnt--;
         }
+        //System.out.println("key, value " + key + ", " + value + "added");
+        cnt++;
+        Node node = new Node(key, value);
+        map.put(key, node);
+        insert(node);
     }
 }
-class Node{
+class Node {
     int key;
-    int value;
+    int val;
     Node prev;
     Node next;
 
-    Node(int key, int value) {
+    Node(int key, int val) {
         this.key = key;
-        this.value = value;
-        this.prev = null;
-        this.next = null;
+        this.val = val;
     }
 }
-/**
-lru면은.. 뭐가 처음이고 마지막인지 어떻게 알지?
-큐를 만들어놓고 사용하면 뺀다음에 다시 넣고.. < 불가능하지
-그냥 hashmap해서 하면 지울떄가 문제임. 뭐가 lru인지 알 수가 없다.
 
- */
 /**
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache obj = new LRUCache(capacity);
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
+ /**
+ hash에다가 저장해놓고 관리해야함
+ 그러면 lru는 어떻게 관리하나?
+ -> linked list에서 head와 tail로 관리.
+  */
