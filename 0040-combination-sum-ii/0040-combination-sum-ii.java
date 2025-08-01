@@ -11,7 +11,7 @@ class Solution {
         // for(List<Integer> list : ans) {
         //     set.add(list);
         // }
-        return ans.stream().distinct().collect(Collectors.toList());
+        return ans;
     }
     public void dfs(int[] candidates, int total, int target, int idx, List<Integer> current) {
         if (total == target) {
@@ -23,7 +23,8 @@ class Solution {
             if (candidates[i] + total > target) {
                 return;
             }
-            if (i > idx &&candidates[i] == candidates[i -1]) continue;
+            if (i > idx && candidates[i] == candidates[i - 1]) continue;//다음거 확인
+           
             current.add(candidates[i]);
             dfs(candidates, total + candidates[i], target, i + 1, current);
             current.remove(current.size() - 1);
