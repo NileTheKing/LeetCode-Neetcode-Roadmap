@@ -4,34 +4,31 @@ class Solution {
     public int numIslands(char[][] grid) {
         m = grid.length;
         n = grid[0].length;
-        boolean[][] visited = new boolean[m][n];
-        List<List<int[]>> islands = new ArrayList<>();
+        //boolean[][] visited = new boolean[m][n];
+        //List<List<int[]>> islands = new ArrayList<>();
         
-
+        int ans = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (!visited[i][j] && grid[i][j] == '1')
-                    islands.add(bfs(new int[]{i,j}, grid, visited)); // helper. to do.
+                if (grid[i][j] == '1'){
+                    bfs(grid,  i, j);
+                    ans++;
+                }
             }
         }
         
-        // for (var island : islands) {
-        //     for (int[] i : island) {
-        //         System.out.print("[" +i[0] + "," + i[1] + "],");
-        //     }
-        //     System.out.println("end of an island");
-        // }
-        return islands.size();
+
+        return ans;
     }
 
-    public List<int[]> bfs(int[] coord, char[][] grid, boolean[][] visited) {
+    public void bfs(char[][] grid, int r, int c) {
     
 
         Queue<int[]> queue = new LinkedList<>();
-        List<int[]> list = new ArrayList<>();
-        queue.offer(coord);
-        list.add(coord);
-        visited[coord[0]][coord[1]] = true;
+        //List<int[]> list = new ArrayList<>();
+        queue.offer(new int[] {r,c});
+        //list.add(coord);
+        grid[r][c] = 2;
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) { //큐에 있는 모든 좌표에 대하여
@@ -42,21 +39,18 @@ class Solution {
                     int nc = polled[1] + direction[1];
 
                     if (nr < 0 || nr >= m || nc < 0 || nc >=n) continue;//초과라서 이쪽방향은 안됨
-                    if (visited[nr][nc]) continue;
-                    if (grid[nr][nc] == '0') continue; //얘도 이방향은 안됨
+                    if (grid[nr][nc] != '1') continue;
 
                     //가능한 좌표면 추가. 상대좌표? 필요없지. 너가 풀었던 문제는 다른 보드에 적용해야 됐던 문제잖아
                     //큐에도 추가
                     queue.offer(new int[]{nr, nc});
-                    list.add(new int[]{nr, nc});
-                    visited[nr][nc] = true;
-                    //System.out.println("[" + nr + "," + nc + "] added");
+                    //list.add(new int[]{nr, nc});
+                    grid[nr][nc] = '2';
 
                 }
             }
         }
 
-        return list;
     }
 }
 /**
