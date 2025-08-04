@@ -15,12 +15,12 @@ class Solution {
             }
         }
         
-        for (var island : islands) {
-            for (int[] i : island) {
-                System.out.print("[" +i[0] + "," + i[1] + "],");
-            }
-            System.out.println("end of an island");
-        }
+        // for (var island : islands) {
+        //     for (int[] i : island) {
+        //         System.out.print("[" +i[0] + "," + i[1] + "],");
+        //     }
+        //     System.out.println("end of an island");
+        // }
         return islands.size();
     }
 
