@@ -1,30 +1,25 @@
 class Solution {
     public int[] findRedundantConnection(int[][] edges) {
         Map<Integer, List<Integer>> map = new HashMap<>();
-        int n = edges.length;
 
         for (int[] e : edges) {
             map.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
             map.computeIfAbsent(e[1], k -> new ArrayList<>()).add(e[0]);
-
-            boolean[] visited = new boolean[n+1];
-
-            if (dfs(map, e[0], -1, visited)) return new int[] {e[0],e[1]};
         }
-        return null;
 
-
+        return dfs(map, 1, -1, new HashSet<>());
     }
-    public boolean dfs(Map<Integer, List<Integer>> map, int current, int parent, boolean[] visited) {
-        if (visited[current]) return true;//싸이클 발견. 답 리턴
-        //System.out.println(current + " traversing.");
-        visited[current] = true;
+    public int[] dfs(Map<Integer, List<Integer>> map, int current, int parent, Set<Integer> cycle) {
+        if (cycle.contains(current)) return new int[] {current, parent};//싸이클 발견. 답 리턴
+        System.out.println(current + " traversing.");
+        cycle.add(current);
         for (int nei : map.getOrDefault(current, new ArrayList<>())) {
             if (nei == parent) continue;
-            if (dfs(map, nei, current, visited)) return true;
+            int[] ans = dfs(map, nei, current, cycle);
+            if (ans != null) return ans;
 
         }
-        return false; //존재하지 않음
+        return null; //존재하지 않음
     }
 }
 /**
