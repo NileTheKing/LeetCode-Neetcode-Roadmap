@@ -11,16 +11,12 @@
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         
-        if (root == null) return null;
-        if (root == p || root == q) return root; //찾았음
-
-        TreeNode left = lowestCommonAncestor(root.left, p, q);
-        TreeNode right = lowestCommonAncestor(root.right, p, q);
-
-        if (left != null && right != null) return root;
-        if (left == null && right != null) return right;
-        if (left != null && right == null) return left;
-
-        return null;
+        if (Math.max(p.val, q.val) < root.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        }else if (Math.min(p.val, q.val) > root.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }else { //같은 경우 포함됨. 결국 찾다보면 어느 순간 이런 지점이 오는데 이게 답
+            return root;
+        }
     }
 }
