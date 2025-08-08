@@ -1,78 +1,82 @@
 class LRUCache {
-    Map<Integer, Node> cache;
-    Node head; //recent
-    Node tail; //least recent
-    int capa;
-    
+    Map<Integer, Node> map;
+    Node head; //mru
+    Node tail; //lru
+    int capacity;
     public LRUCache(int capacity) {
-        this.cache = new HashMap<>();
-        this.capa = capacity;
-        this.head = new Node(0, 0);
-        this.tail= new Node(0, 0);
-        this.head.next = this.tail;
-        this.tail.prev = this.head;
-    }
-    //newly added
-    private void remove(Node node) { //노드삭제
-        Node prev = node.prev;
-        Node nxt = node.next;
-        prev.next = nxt;
-        nxt.prev = prev;
-    }
-    private void insert(Node node) { //맨앞에 추가
-        Node next = this.head.next; //맨앞 다음거. 우리가 할거는 head->next를 head->node->next로
-        this.head.next = node;
-        node.prev = head;
-        node.next = next;
-        next.prev = node;
-
+        map = new HashMap<>();
+        head = new Node(-1,-1);
+        tail = new Node(-1,-1);
+        head.next = tail;
+        tail.prev = head;
+        this.capacity = capacity;
     }
     
     public int get(int key) {
-        if (cache.containsKey(key)) {
-            Node node = cache.get(key);
+        if (map.containsKey(key)) {
+            Node node = map.get(key);
             remove(node);
             insert(node);
-            return node.value;
+            //System.out.println("got" + node.key);
+            return node.val;
         }
         return -1;
     }
     
     public void put(int key, int value) {
-        //있으면 지우고 새로만드는걸로 동일과정
-        if (cache.containsKey(key)) {
-            remove(cache.get(key));
+        //추가 기능. 용량이 초과하면 지운다음에 넣고
+        //용량있으면 추가. 없으면 지우고 넣기
+        if (map.containsKey(key)) {
+            //System.out.println("duplicate " + key);
+            Node og = map.get(key);
+            remove(og);
+            Node fresh = new Node(key, value);
+            map.put(key, fresh);
+            insert(fresh);
         }
-        Node newNode = new Node(key, value);
-        cache.put(key, newNode);
-        insert(newNode);
+        if (map.size() >= capacity) {
+            
+            Node n = tail.prev;
+            //System.out.print("capaover, evicting: " + n.key);
+            //System.out.println(" bcuz lru is:" + n.key);
+            remove(n);
+            map.remove(n.key);
+        }
+        Node n = new Node(key, value);
+        insert(n);
+        map.put(key, n);
+        return;
+        
+    }
 
-        if (cache.size() > capa) {
-            Node lru = this.tail.prev;
-            remove(lru);
-            cache.remove(lru.key);
+    public void insert(Node node) {
+        Node og_next = head.next;
+        head.next = node;
+        node.prev = head;
+        node.next = og_next;
+        og_next.prev = node;
+    }
+    public void remove(Node node) {
+        // prev node next -> prev next
+        Node prev = node.prev;
+        Node next = node.next;
+        prev.next = next;
+        next.prev = prev;
+    }
+
+    public class Node {
+        int key;
+        int val;
+        Node prev;
+        Node next;
+
+        Node(int key, int val) {
+            this.key = key;
+            this.val = val;
         }
     }
 }
-class Node{
-    int key;
-    int value;
-    Node prev;
-    Node next;
 
-    Node(int key, int value) {
-        this.key = key;
-        this.value = value;
-        this.prev = null;
-        this.next = null;
-    }
-}
-/**
-lru면은.. 뭐가 처음이고 마지막인지 어떻게 알지?
-큐를 만들어놓고 사용하면 뺀다음에 다시 넣고.. < 불가능하지
-그냥 hashmap해서 하면 지울떄가 문제임. 뭐가 lru인지 알 수가 없다.
-
- */
 /**
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache obj = new LRUCache(capacity);
