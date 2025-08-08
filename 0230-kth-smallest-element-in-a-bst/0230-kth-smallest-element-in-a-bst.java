@@ -14,17 +14,21 @@
  * }
  */
 class Solution {
+    List<Integer> order = new ArrayList<>();
     public int kthSmallest(TreeNode root, int k) {
-        List<Integer> list = new ArrayList<>();
-        dfs(root, list);
-
-        return list.get(k - 1);
+        dfs(root);
+        return order.get(k-1);
     }
-    public void dfs(TreeNode node, List<Integer> list) {
+    public void dfs(TreeNode node) {
         if (node == null) return;
-
-        dfs(node.left, list);
-        list.add(node.val);
-        dfs(node.right, list);
+        dfs(node.left);
+        order.add(node.val);
+        dfs(node.right);
+        return;
     }
 }
+/**
+bst의 inoreder 순회는 작은거부터 방문함.
+왜냐하면 inorder는 좌본우 우선순위인데
+most left node 가 가장 작음.
+ */
