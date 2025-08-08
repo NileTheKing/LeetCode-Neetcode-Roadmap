@@ -10,27 +10,20 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-
-        ListNode left = dummy;
-        ListNode right = dummy;
-
-        //n만큼 띄워놓기
-        for (int i = 0; i < n; i++) {
-            right = right.next;
-        }
-
-        //끝까지 이동(맨끝)
-        //1->2->3에서 2를 지운다면
-        //l은 1을 r은 3에 위치중
-        while (right.next != null) {
-            left =left.next;
-            right = right.next;
-        }
         
-        //이제 지우기
-        left.next = left.next.next;
+        ListNode dummy = new ListNode(0, head);
+        ListNode l = dummy;
+        ListNode r = dummy;
+        int cnt = 0;
+        for (int i = 0; i < n; i++) {
+            r = r.next;
+        }
+
+        while (r.next != null) {
+            l = l.next;
+            r = r.next;
+        }
+        l.next = l.next.next;
 
         return dummy.next;
     }
