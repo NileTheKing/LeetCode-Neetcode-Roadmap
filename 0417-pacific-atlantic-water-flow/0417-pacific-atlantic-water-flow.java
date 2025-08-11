@@ -1,50 +1,57 @@
 class Solution {
-    int rows, cols;
-    int[][] directions = {{-1,0},{1,0},{0,1},{0,-1}};
+    int[][] directions = {{1,0},{-1,0},{0,1},{0,-1}};
+    int m, n;
     public List<List<Integer>> pacificAtlantic(int[][] heights) {
-        Queue<int[]> q = new LinkedList<>();
+        m = heights.length;
+        n = heights[0].length;
+
+        //pacific to uphill
+        boolean[][] pacific = new boolean[m][n];
+        boolean[][] atlantic = new boolean[m][n];
+        for (int i = 0; i < m; i++) { //|
+            bfs(heights, pacific, i, 0);
+        }
+        for (int i = 0; i < n; i++) { // -
+            bfs(heights, pacific, 0, i);
+        }
+        //atlantic to uphill
+         for (int i = 0; i < m; i++) { // |
+            bfs(heights, atlantic, i, n-1);
+        }
+        for (int i = 0; i < n; i++) {// -
+            bfs(heights, atlantic, m-1, i);
+        }
+        //intersection
         List<List<Integer>> ans = new ArrayList<>();
-        rows = heights.length;
-        cols = heights[0].length;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (bfs(heights,i,j))
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (pacific[i][j] && atlantic[i][j]) {
                     ans.add(Arrays.asList(i,j));
+                }
             }
         }
         return ans;
     }
-    public boolean bfs(int[][] heights, int r, int c) {
-        boolean[][] visited = new boolean[rows][cols];
+    public void bfs(int[][] heights, boolean[][] reachable, int r, int c) {
         Queue<int[]> q = new LinkedList<>();
-        q.offer(new int[] {r, c});
-        visited[r][c] = true;
-        boolean flag1 = false;
-        boolean flag2 = false;
+        //boolean[][] visited = new boolean[m][n];
+        q.offer(new int[] {r,c});
+        //visited[r][c] = true;
+        reachable[r][c] = true;
+
         while (!q.isEmpty()) {
             int[] polled = q.poll();
-            for (int[] d : directions) {
+            for (var d : directions) {
                 int nr = polled[0] + d[0];
                 int nc = polled[1] + d[1];
 
-
-                if (nr < 0 || nc < 0) flag1 = true;
-                if (nr >= rows || nc >= cols) flag2 = true;
-
-                if (nr < 0 || nr >= rows || nc < 0 || nc >= cols || heights[nr][nc] == -2 || visited[nr][nc]) continue; //불가능
-                if (heights[polled[0]][polled[1]] < heights[nr][nc]) continue;//불가능
-
-                visited[nr][nc] = true;
-                q.offer(new int[] {nr,nc});
+                if (nr < 0 || nr >= m || nc < 0 || nc >= n || reachable[nr][nc]) continue;
+                if (heights[polled[0]][polled[1]] <= heights[nr][nc]) {
+                    q.offer(new int[] {nr,nc});
+                    reachable[nr][nc] = true;
+                    //visited[nr][nc] = true;
+                }
             }
         }
-
-        return flag1 && flag2;
     }
 }
-/**
-각 지점을 순회
-둘다 도달가능하면 추가. 아니라면 패스..
-일단 그렇게 풀어볼까? 나중에 최적화는 또.. 현재 위치가 되는 위치면 더 확인할 필요 없긴하지.
-반대로 안되는 위치면 
- */
