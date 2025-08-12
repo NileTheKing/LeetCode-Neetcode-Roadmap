@@ -24,7 +24,7 @@ class Solution {
         //System.out.println("currnet:" + current);
         if (visited.contains(current)) {
             //System.out.println("size condition ");
-            System.out.println("already visited and assured");
+            //ystem.out.println("already visited and assured");
             return true;
         }
         if (visiting.contains(current)) { 
@@ -36,11 +36,11 @@ class Solution {
 
 
         for (var nei : map.getOrDefault(current, new ArrayList<>())) {
-            System.out.println("nei:" +  nei);
+            //System.out.println("nei:" +  nei);
             if (!isValid(visiting, nei,visited)) return false;
         }
         
-        System.out.println(current + " added to visited");
+        //System.out.println(current + " added to visited");
         visited.add(current);
         visiting.remove(current);
         //System.out.println("reached end. coudlnt find. current: " + current);
