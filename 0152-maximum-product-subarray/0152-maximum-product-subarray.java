@@ -1,23 +1,20 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        int n = nums.length;
-        int res = nums[0];
+        int min = nums[0];
+        int max = nums[0];
+        int ans = nums[0];
 
-        for (int i = 0; i < n; i++) {
-            int current = 1;
-            for (int j = i; j < n; j++) {
-                current = current * nums[j];
-                res = Math.max(current, res);
-            }
+        for (int i = 1; i < nums.length; i++) {
+            int cur = nums[i];
+            int tmpM = max;
+            
+            max = Math.max(cur, 
+                Math.max(max * cur, min * cur));
+            min = Math.min(cur, 
+                Math.min(min * cur, tmpM * cur));
+
+            ans = Math.max(ans, max);
         }
-        return res;
+        return ans;
     }
 }
-/**
-subarray  -> two pointer
-    하지만 넣냐 안넣냐의 문제가 아님. 정도의 차이가 있기 떄문.
-
-그렇다면 완전 탐색을 하냐?배열은 10000개. n2이면 1,000,000,000
-O(n)으로 풀어야함. or nlogn
-
- */
