@@ -10,18 +10,20 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        
-        ListNode dummy = new ListNode(0, head);
+        //투포인터 만들고 이격시키면 뒤에서부터 가능
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
         ListNode l = dummy;
         ListNode r = dummy;
-        int cnt = 0;
+
         for (int i = 0; i < n; i++) {
             r = r.next;
         }
 
         while (r.next != null) {
-            l = l.next;
             r = r.next;
+            l = l.next;
         }
         l.next = l.next.next;
 
