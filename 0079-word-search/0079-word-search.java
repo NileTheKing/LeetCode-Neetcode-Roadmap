@@ -1,39 +1,32 @@
 class Solution {
-    int[][] directions = {{-1,0},{1,0},{0,1},{0,-1}};
-    int m,n;
+    int m;
+    int n;
     public boolean exist(char[][] board, String word) {
         m = board.length;
         n = board[0].length;
+        boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (dfs(board, new int[]{i,j}, new boolean[m][n], word, 0)) return true;
-            }
-        }
-        return false;
-    }
-    public boolean dfs(char[][] board, int[] coord, boolean[][] visited, String word, int idx) {
-        
-        if (word.charAt(idx) != board[coord[0]][coord[1]]) return false;
-        if (idx == word.length()- 1) return true; //같고 마지막에 도달했는지
-
-        visited[coord[0]][coord[1]] = true;
-        for (int[] direction : directions) {
-            int nr = coord[0] + direction[0];
-            int nc = coord[1] + direction[1];
-
-            if (nr >= 0 && nr < m && nc >= 0 && nc < n && !visited[nr][nc]) {
-                if (dfs(board, new int[]{nr,nc}, visited, word, idx + 1)) {
-                    return true; // 만약 재귀 호출에서 단어를 찾았으면, 즉시 true를 반환하여 상위 호출로 전달
+                if (!visited[i][j]) {
+                    if (dfs(board, new boolean[m][n], i, j, word, 0)) return true;
                 }
             }
         }
-        //여기까지 왔다면 답없는거임
-        visited[coord[0]][coord[1]] = false;
+        return false;
+    }
+    public boolean dfs(char[][] board, boolean[][] visited, int r, int c, String word, int idx) {
+        if (r >= m || r < 0 || c >= n || c < 0 || visited[r][c]) return false;
+        if (idx == word.length() || (idx == word.length() -1  && board[r][c] == word.charAt(idx))) return true;
+        if (board[r][c] != word.charAt(idx)) return false;
+        visited[r][c] = true;
+        //sb.append(board[r][c]);
+        //System.out.printf("current: %s \n", sb.toString());
+        if (dfs(board, visited, r + 1, c, word, idx + 1) ||
+        dfs(board, visited, r -1, c, word, idx + 1) ||
+        dfs(board, visited, r, c + 1, word, idx + 1) ||
+        dfs(board, visited, r, c - 1, word, idx + 1)) return true;
+
+        visited[r][c]=  false;
         return false;
     }
 }
-/**
-board를 순회하며 word에 맞는 지점을 따라 이동
-
-
- */
