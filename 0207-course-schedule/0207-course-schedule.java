@@ -1,32 +1,39 @@
 class Solution {
     Map<Integer, List<Integer>> map = new HashMap<>();
-    boolean[] visited;// no cycle assured
+    Set<Integer> visited = new HashSet<>();
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        visited = new boolean[numCourses];
-        for (int[] p : prerequisites) {
-            map.computeIfAbsent(p[0], k -> new ArrayList<>()).add(p[1]);
-        }
 
+        for (int[] pr : prerequisites) {//graph 완성
+            map.computeIfAbsent(pr[0], k-> new ArrayList<>()).add(pr[1]);
+        }      
+
+        //모든 노드를 순회하며 사이클 확인. 방향그래프므로 parent없이 그냥 방문중인 노드 발견하면 cycle.
         for (int i = 0; i < numCourses; i++) {
-            if (!visited[i] && hasCycle(map, new HashSet<>(), i)) return false;
+            if (!visited.contains(i) && hasCycle(new HashSet<>(), i)) {
+                // System.out.printf("%d has cycle", i);
+                return false;
+            }
         }
         return true;
-
     }
-    public boolean hasCycle(Map<Integer, List<Integer>> map, Set<Integer> visiting, int current) {
-        if (visiting.contains(current)) return true;
-        if (visited[current]) return false;
+    public boolean hasCycle(Set<Integer> visiting, int current) {
+        if (visiting.contains(current)) {
+            // System.out.print("has been visitng: ");
+            // for (Integer i : visiting) {
+            //     System.out.printf("%d, ", i);
+            // }
+            // System.out.printf("and %d is the problem \n", current);
+            return true;
+        }
+        if (visited.contains(current)) return false;
 
         visiting.add(current);
-        for (var nei : map.getOrDefault(current, new ArrayList<>())) {
-            if (hasCycle(map, visiting, nei)) return true;
+
+        for(int nei : map.getOrDefault(current, new ArrayList<>())) {
+            if (hasCycle(visiting, nei)) return true;
         }
         visiting.remove(current);
-        visited[current] = true;
+        visited.add(current);
         return false;
     }
 }
-/**
-graph problem
-a->b 로 그려야함. 왜냐하면 역순으로 찾아야함. 싸이클 찾기
- */
