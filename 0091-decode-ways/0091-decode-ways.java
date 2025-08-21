@@ -1,22 +1,19 @@
 class Solution {
     public int numDecodings(String s) {
-        return partition(s);
-    }
-    public int partition(String s) {
-        int length = s.length();
-        if (length == 0) return 1;
-        if (length == 1) {
-            if (isValid(s)) return 1;
-            else return 0;
-        }
+        int size = s.length();
         
-        if (s.charAt(0) == '0') return 0; 
-        int cnt = partition(s.substring(1, s.length()));
-        if (isValid(s.substring(0,2))) {
-            cnt += partition(s.substring(2, s.length()));
-        }
+        int[] dp = new int[size+1];
+        dp[0] = 1;
+        dp[1] = s.charAt(0) == '0' ? 0 : 1;
 
-        return cnt;
+        for (int i = 2; i <= size; i++) {
+            if (s.charAt(i-1) != '0')
+                dp[i] = dp[i-1];
+            if (isValid(s.substring(i-2,i))) {
+                dp[i] += dp[i-2];
+            }
+        }
+        return dp[size];
     }
     public boolean isValid(String s) {
         if (s.charAt(0) == '0') return false;
@@ -26,4 +23,5 @@ class Solution {
 
         return true;
     }
+
 }
