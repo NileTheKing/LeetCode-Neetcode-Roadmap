@@ -1,51 +1,37 @@
 class Solution {
-    List<Integer> ans;
-    Set<Integer> visited;
-    Map<Integer, List<Integer>> map;
-    int n;
+    List<Integer> ans = new ArrayList<>();
+    Map<Integer, List<Integer>> map = new HashMap<>();
+    Set<Integer> visited = new HashSet<>();
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        n = numCourses;
-        map = new HashMap<>();
-        ans = new ArrayList<>();
-        visited = new HashSet<>();
         
         for (int[] p : prerequisites) {
-            map.computeIfAbsent(p[0], k -> new ArrayList<>()).add(p[1]);
+            map.computeIfAbsent(p[0], k-> new ArrayList<>()).add(p[1]);
         }
-        
-        for (int i = 0; i < n; i++) {
-            if (!isValid(new HashSet<>(), i, visited))
-                return new int[0];
+
+        for (int i = 0; i < numCourses; i++) {
+            if (visited.contains(i)) continue;
+            if (!dfs(i, new HashSet<>())) return new int[0];
         }
-        return ans.stream().mapToInt(a->a).toArray();
-    
+        return ans.stream().mapToInt(i->i).toArray();
     }
-    public boolean isValid(Set<Integer> visiting ,int current, Set<Integer> visited) {
-        //System.out.println("currnet:" + current);
-        if (visited.contains(current)) {
-            //System.out.println("size condition ");
-            //ystem.out.println("already visited and assured");
-            return true;
-        }
-        if (visiting.contains(current)) { 
-            //System.out.println("cycle detected"); 
-            return false;}
-         //cycle detected
-        
+    public boolean dfs(int current, Set<Integer> visiting) {
+        if (visiting.contains(current)) return false;
+        if (visited.contains(current)) return true;
+
         visiting.add(current);
-
-
-        for (var nei : map.getOrDefault(current, new ArrayList<>())) {
-            //System.out.println("nei:" +  nei);
-            if (!isValid(visiting, nei,visited)) return false;
+        for (int nei : map.getOrDefault(current, new ArrayList<>())) {
+            if (!dfs(nei, visiting)) return false;
         }
         
-        //System.out.println(current + " added to visited");
-        visited.add(current);
         visiting.remove(current);
-        //System.out.println("reached end. coudlnt find. current: " + current);
+        visited.add(current);
         ans.add(current);
         return true;
-
     }
 }
+/**
+백트래킹과 그래프 순회
+일단 순서는 상관없으니 모든 지점에서 entry해야함
+그리고 음 뒤에서부터 순서를 dfs에서 넣어야하는데 그거를 어떻게하지?
+list에 추가하면 되겟네
+ */
