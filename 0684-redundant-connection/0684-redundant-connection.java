@@ -32,9 +32,10 @@ class Solution {
         }
     }
     public Node find(Node n) { //find it's root until the end
-        Node p = n.parent;
-        if (n.key == p.key) return n;
-        else return find(p);
+        if (n.val != n.parent.val) {
+            n.parent = find(n.parent);
+        }
+        return n.parent;
     }
     public void union(Node n1, Node n2) {
         Node root1 = find(n1);
