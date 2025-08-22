@@ -1,35 +1,52 @@
 class Solution {
+    Map<Integer, Node> map = new HashMap<>();
     public int[] findRedundantConnection(int[][] edges) {
-        Map<Integer, List<Integer>> map = new HashMap<>();
         int n = edges.length;
-
+        //Map<Integer, Node> map = new HashMap<>();
+        for (int i = 1; i <= n; i++) {
+            map.put(i, new Node(i, i));
+        }
         for (int[] e : edges) {
-            map.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
-            map.computeIfAbsent(e[1], k -> new ArrayList<>()).add(e[0]);
-
-            boolean[] visited = new boolean[n+1];
-
-            if (dfs(map, e[0], -1, visited)) return new int[] {e[0],e[1]};
+            Node n1 = map.get(e[0]);
+            Node n2 = map.get(e[1]);
+            if (union(n1, n2)) return e;
         }
         return null;
-
-
+        
     }
-    public boolean dfs(Map<Integer, List<Integer>> map, int current, int parent, boolean[] visited) {
-        if (visited[current]) return true;//싸이클 발견. 답 리턴
-        //System.out.println(current + " traversing.");
-        visited[current] = true;
-        for (int nei : map.getOrDefault(current, new ArrayList<>())) {
-            if (nei == parent) continue;
-            if (dfs(map, nei, current, visited)) return true;
+    class Node {
+        int val;
+        int parent;
+        int rank;
 
+        Node(int val, int parent) {
+            this.val = val;
+            this.parent = parent;
+            this.rank = 1;
         }
-        return false; //존재하지 않음
     }
+    public boolean union(Node n1, Node n2) {
+        Node p1 = find(n1);
+        Node p2 = find(n2);
+
+        if (p1.val == p2.val) return true;
+
+        if (p1.rank >= p2.rank) {
+            p2.parent = p1.val;
+            p1.rank += p2.rank;
+        }else {
+            p1.parent = p2.val;
+            p2.rank += p1.rank;
+        }
+        return false;
+    }
+    public Node find(Node n) {
+        if (n.parent == n.val) 
+            return n;
+        
+        Node root = find(map.get(n.parent));
+        n.parent = root.val;
+        return root;
+    }
+    
 }
-/**
-dfs해서 싸이클 찾아라 이거네.그거 간선 찾으면 됨
-일단 이거는 다 연결은 되어있지.
-그니까 1로 단일 진입하면 됨.
-그러니까 딱히 visited할필요 없이 cycle 가지고 있으면 될듯?
- */
