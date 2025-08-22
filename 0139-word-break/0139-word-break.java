@@ -1,25 +1,23 @@
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
-        boolean[] dp = new boolean[s.length() + 1];
+        int length = s.length();
+        boolean[] dp = new boolean[length + 1]; //sub(0,i) 가능여부임. 
+        //length-1인덱스의 값은 dp[length] 에 담겨있음.
         dp[0] = true;
-        for (int i = 1; i <= s.length(); i++) { //글자단위로 변경. i글자까지 완성 가능하냐 이거임.
-            //날먹가능확인.
-            for (String str : wordDict) {
-                        if (s.substring(0,i).equals(str)) dp[i] = true;
-            }
-            if (dp[i]) continue;
-            for (int j = 1; j <= i; j++) { //이전까지의 dp를 모두 확인하겠따
-                if (dp[i-j]) {
-                    for (String str : wordDict) {
-                        if(s.substring(i-j, i).equals(str)) dp[i] = true;
-                    }
+
+        for (int i = 1; i <= length; i++) {
+            for (String w : wordDict) { //i가 4일떄 leet가능ㅇ.
+                if (i - w.length() >= 0 && dp[i-w.length()] && s.substring(i - w.length(), i).equals(w)) {
+                    dp[i] = true; //그전께 됐다면 가능
+                    break;
+                    //System.out.println("sub(" + (i-w.length()) + ", " + i +") updated dp["+i+"]");
+                    //System.out.println("current word:" + w);
+                    //System.out.println("trying to make: " + s.substring(i-w.length(), i));
+    
                 }
             }
         }
-        return dp[s.length()];
+
+        return dp[length];
     }
 }
-/**
-if any combination of wordDict can make up s -> true
-
- */
