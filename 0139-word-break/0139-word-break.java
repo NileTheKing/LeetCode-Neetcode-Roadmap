@@ -1,28 +1,25 @@
 class Solution {
-    int[] dp;
     public boolean wordBreak(String s, List<String> wordDict) {
-        dp = new int[s.length() + 1]; //if dp[3] true -> 3글자는 ok.
-        //dp[0] = 1; //1 good 0not yet -1no
-        return dfs(s, wordDict, 0);
-    }   
-    public boolean dfs(String s, List<String> wordDict,int cnt) {//cnt for dp
-        if(cnt == s.length()) return true;
-        if (dp[cnt] == -1) return false; //cnt까지 완성을 못한다.
-        if (dp[cnt] == 1) return true;
-
-        for (String word : wordDict) {
-            if (s.startsWith(word, cnt)) {
-                if(dfs(s, wordDict, cnt  + word.length())) {
-                    dp[cnt] = 1;
-                    return true;
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
+        for (int i = 1; i <= s.length(); i++) { //글자단위로 변경. i글자까지 완성 가능하냐 이거임.
+            //날먹가능확인.
+            for (String str : wordDict) {
+                        if (s.substring(0,i).equals(str)) dp[i] = true;
+            }
+            if (dp[i]) continue;
+            for (int j = 1; j <= i; j++) { //이전까지의 dp를 모두 확인하겠따
+                if (dp[i-j]) {
+                    for (String str : wordDict) {
+                        if(s.substring(i-j, i).equals(str)) dp[i] = true;
+                    }
                 }
             }
-            
         }
-        dp[cnt] = -1;
-        return false;
+        return dp[s.length()];
     }
 }
 /**
-wordDict에 있는 옵션들로 조합해서 s를 완벽하게 만들어야 한다.
+if any combination of wordDict can make up s -> true
+
  */
