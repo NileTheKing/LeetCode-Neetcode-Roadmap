@@ -9,9 +9,9 @@ class Solution {
 
         
         for (int i = 0; i < m; i++) {
-            System.out.println("start of pacific |");
+            //System.out.println("start of pacific |");
             dfs(heights,pacific, i, 0, -1);
-            System.out.println("end of pacific |");
+            //System.out.println("end of pacific |");
             dfs(heights,atlantic, i, n-1, -1);
         }
         for (int i = 0; i < n; i++) {
@@ -31,7 +31,7 @@ class Solution {
     public void dfs(int[][] heights, boolean[][] ocean, int r , int c, int prevHeight){
         // if (r < 0 || r >= m || c < 0 || c >= n || ocean[r][c]) return;
         // if(heights[r][c] < prevHeight) return;
-        System.out.printf("visiting[%d][%d] ", r,c);
+        //System.out.printf("visiting[%d][%d] ", r,c);
         ocean[r][c] = true;
         for (int[] d : directions) {
             int nr = d[0] + r;
