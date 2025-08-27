@@ -1,33 +1,34 @@
 class Solution {
     public int trap(int[] height) {
-        /**
-        현재 칸의 물의 양은 왼쪽오른쪽 중에 작은 놈에 대해 결정됨
-        왼쪽이 작다면 왼쪽중에 가장 작은값
-        vice versa
+        int[] leftMax = new int[height.length];
+        int[] rightMax = new int[height.length];
 
-
-         */
-        int left = 0;
-        int right = height.length - 1;
-        int leftMax = 0;
-        int rightMax = 0;
-        int water = 0;
-
-        while (left < right) {
-
-
-            if (height[left] < height[right]) {
-                leftMax = Math.max(height[left], leftMax);
-                water += (leftMax - height[left]);
-                left++;
-            }
-            else {
-                rightMax = Math.max(height[right], rightMax);
-                water += (rightMax- height[right]);
-                right--;
-            }
+        leftMax[0] = 0;
+        leftMax[1] = height[0];
+        for (int i = 2; i < height.length; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], height[i - 1]);
+            //System.out.printf("leftMax[%d] == %d\n", i, leftMax[i]);
         }
 
-        return water;
+        rightMax[height.length - 1] = 0;
+        rightMax[height.length - 1 - 1] = height[height.length - 1];
+        for (int i = 2; i < height.length; i++) {
+            //leftMax[i] = Math.max(leftMax[i - 1], height[i - 1]);
+            rightMax[height.length - 1 - i] = Math.max(rightMax[height.length - 1 - i + 1], height[height.length - 1 - i + 1]);
+            //System.out.printf("rightMax[%d] == %d\n", height.length -1 - i, rightMax[height.length - 1 - i]);
+        }
+        // for (int i = 0; i < height.length; i++) {
+        //     System.out.printf("current cell %d's leftMax: %d, rightMax: %d\n", i, leftMax[i], rightMax[i]);
+        // }
+        int ans = 0;
+        for (int i = 1; i < height.length; i++) {
+            int diff = Math.min(leftMax[i], rightMax[i]) - height[i];
+            if (diff > 0){
+                ans += diff;
+                //System.out.printf("current space %d holds %d water\n",i, diff);
+            }
+
+        }
+        return ans;
     }
 }
