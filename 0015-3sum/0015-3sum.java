@@ -1,9 +1,9 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-        Set<List<Integer>> ans = new HashSet<>();
+        List<List<Integer>> ans = new ArrayList<>();
         for (int l =  0; l < nums.length; l++) {
-            //if (l > 0 && nums[l] == nums[l-1]) continue;
+            if (l > 0 && nums[l] == nums[l-1]) continue;
             int m = l + 1;
             int r = nums.length - 1;
             int target = -nums[l];// sum that m and r should make up
@@ -14,14 +14,19 @@ class Solution {
                     r--;
                 }else if(sum < target) {
                     m++;
-                }else {
+                }else { //일단 합이 되면 추가는 해야되고 m도 올려줘야하고..
                     //System.out.printf("l,m,r: %d %d %d\n", l,m,r);
-                    ans.add(Arrays.asList(nums[l],nums[m], nums[r]));
+                    if (m > l + 1 && nums[m] == nums[m - 1]) {
+                        //System.out.printf("passing. l = %d, m = %d, r = %d\n", l,m,r);
+                        m++; continue;
+                    }
+                    else {ans.add(Arrays.asList(nums[l],nums[m], nums[r]));
                     m++;
+                    }
                 }
             }
         }
-        return new ArrayList<>(ans);
+        return ans;
     }
 }
 /**
