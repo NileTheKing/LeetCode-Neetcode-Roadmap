@@ -1,44 +1,29 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-        List<List<Integer>> res = new ArrayList<>();
-
-
-        //i,j,k triplet. Get i fixed to iterate over the array. -> so no skipping over missing cases
-        for (int i = 0; i < nums.length - 2; i++) {//
-            int left = nums[i];
-            if (left > 0) break;
-            //if (nums[i] = nums[i + 1])
-
-            int j  = i + 1;
-            int k = nums.length - 1;
-            while (j < k) {
-                int mid = nums[j];
-                int right = nums[k];
-
-                if (left + mid + right == 0) {
-                    
-                    res.add(Arrays.asList(left, mid, right));
-
-                    while (j < k && nums[j] == nums[j+1]) {
-                        j++;
-                    }
-                    while (j < k && nums[k] == nums[k - 1]) {
-                        k--;
-                    }
-
-                    
-                    j++;
-                    k--;
-                }else if (left + mid + right < 0) {
-                    j++;
+        Set<List<Integer>> ans = new HashSet<>();
+        for (int l =  0; l < nums.length; l++) {
+            //if (l > 0 && nums[l] == nums[l-1]) continue;
+            int m = l + 1;
+            int r = nums.length - 1;
+            int target = -nums[l];// sum that m and r should make up
+            while (m <= nums.length -1 && m < r) {
+                int sum = nums[m] + nums[r];
+                //System.out.printf("nums[%d] + nums[%d] = %d\n", m,r,sum);
+                if (sum > target) {
+                    r--;
+                }else if(sum < target) {
+                    m++;
+                }else {
+                    //System.out.printf("l,m,r: %d %d %d\n", l,m,r);
+                    ans.add(Arrays.asList(nums[l],nums[m], nums[r]));
+                    m++;
                 }
-                else {
-                    k--;
-                }  
             }
         }
-
-        return res;
+        return new ArrayList<>(ans);
     }
 }
+/**
+l + m + r = 0
+ */
