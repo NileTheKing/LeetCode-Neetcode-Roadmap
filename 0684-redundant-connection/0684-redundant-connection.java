@@ -1,52 +1,49 @@
 class Solution {
+    Map<Integer, List<Integer>> map = new HashMap<>();
+    Set<Integer> cycle = new HashSet<>();
+    boolean[] visited;
+    int cycleStart = -1;
     public int[] findRedundantConnection(int[][] edges) {
-        Map<Integer, Node> map = new HashMap<>();
+        int n = edges.length;
+        visited = new boolean[n+1];
         for (int[] e : edges) {
-        //map에서 n1, n2를 읽어서 없으면 만들고 있으면 조회한거 씀
-        //find먼저 해 보고 n1,n2 union함
-            if (!map.containsKey(e[0])) {
-                Node n = new Node(e[0]);
-                n.parent = n;
-                map.put(e[0], n);
-            }
-            if (!map.containsKey(e[1])) {
-                Node n = new Node(e[1]);
-                n.parent = n;
-                map.put(e[1], n);
-            }
-            Node n1 = map.get(e[0]);
-            Node n2 = map.get(e[1]);
-            if (find(n1).key == find(n2).key) return new int[] {e[0], e[1]};
-            else {
-                union(n1, n2);
-            }
+            map.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
+            map.computeIfAbsent(e[1], k -> new ArrayList<>()).add(e[0]);
         }
-        return null;
-    }
-    public class Node{
-        Node parent;
-        int key;
+    
+        dfs(1, -1);
 
-        Node(int key) {
-            this.key = key;
+        for (int i = edges.length - 1; i >= 0; i--) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            if (cycle.contains(u) && cycle.contains(v)) return new int[] {u,v};
         }
+        return new int[0];
     }
-    public Node find(Node n) { //find it's root until the end
-        if (n.val != n.parent.val) {
-            n.parent = find(n.parent);
-        }
-        return n.parent;
-    }
-    public void union(Node n1, Node n2) {
-        Node root1 = find(n1);
-        Node root2 = find(n2);
+    public boolean dfs(int current, int parent) {
+        if (visited[current] == true) {
+            cycleStart = current;
+            return true;
 
-        root2.parent = root1;
-        return;
+        }
+        visited[current] = true;
+
+        for (int nei : map.getOrDefault(current, new ArrayList<>())) {
+            if (nei == parent) continue;
+            if (dfs(nei, current)) {
+                if (cycleStart != -1) cycle.add(current); //싸이클에 들어가는 놈임
+                if (current == cycleStart) {
+                    cycleStart = -1;
+                }
+                return true;
+            }
+        }
+        return false;
     }
 }
 /**
-this can be a union find problem
-or simply cycle detection problem.
-add every single cycles into a data structure then iterate thru the eges backwards.
+dfs해서 싸이클 찾아라 이거네.그거 간선 찾으면 됨
+일단 이거는 다 연결은 되어있지.
+그니까 1로 단일 진입하면 됨.
+그러니까 딱히 visited할필요 없이 cycle 가지고 있으면 될듯?
  */
