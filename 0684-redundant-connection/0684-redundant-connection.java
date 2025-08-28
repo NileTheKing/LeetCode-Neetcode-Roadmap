@@ -1,49 +1,44 @@
 class Solution {
     Map<Integer, List<Integer>> map = new HashMap<>();
     Set<Integer> cycle = new HashSet<>();
-    boolean[] visited;
-    int cycleStart = -1;
+    Set<Integer> visited = new HashSet<>();
     public int[] findRedundantConnection(int[][] edges) {
-        int n = edges.length;
-        visited = new boolean[n+1];
         for (int[] e : edges) {
             map.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
             map.computeIfAbsent(e[1], k -> new ArrayList<>()).add(e[0]);
-        }
-    
-        dfs(1, -1);
 
-        for (int i = edges.length - 1; i >= 0; i--) {
-            int u = edges[i][0];
-            int v = edges[i][1];
-            if (cycle.contains(u) && cycle.contains(v)) return new int[] {u,v};
-        }
-        return new int[0];
-    }
-    public boolean dfs(int current, int parent) {
-        if (visited[current] == true) {
-            cycleStart = current;
-            return true;
-
-        }
-        visited[current] = true;
-
-        for (int nei : map.getOrDefault(current, new ArrayList<>())) {
-            if (nei == parent) continue;
-            if (dfs(nei, current)) {
-                if (cycleStart != -1) cycle.add(current); //싸이클에 들어가는 놈임
-                if (current == cycleStart) {
-                    cycleStart = -1;
-                }
-                return true;
+            findCycles(e[0], -1, new HashSet<>());
+            if(cycle.contains(e[0]) && cycle.contains(e[1])) {
+                return e;
             }
         }
-        return false;
+        
+
+
+        return new int[0];
+    }
+    public void findCycles(int current, int parent, Set<Integer> visiting) {
+        if (visiting.contains(current)) {
+            for (int n : visiting) {
+                cycle.add(n);
+                //System.out.printf("cycle added: %d\n", n);
+            }
+            return;
+        }
+        //if (visited.contains(current)) return;
+        
+        System.out.printf("visiting %d \n", current);
+        visiting.add(current);
+        for (int nei : map.getOrDefault(current, new ArrayList<>())) {
+            if (nei != parent) {
+                findCycles(nei, current, visiting);
+            }
+        }
+        visiting.remove(current);
+        visited.add(current);
+        return;
     }
 }
 /**
-dfs해서 싸이클 찾아라 이거네.그거 간선 찾으면 됨
-일단 이거는 다 연결은 되어있지.
-그니까 1로 단일 진입하면 됨.
-그러니까 딱히 visited할필요 없이 cycle 가지고 있으면 될듯?
+cycle detection으로 가자. cycle ds에  넣어두고 edges input을 뒤로부터 실행해서 싸이클
  */
