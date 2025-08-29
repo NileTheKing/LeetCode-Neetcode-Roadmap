@@ -1,22 +1,22 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        int max = nums[0];
+        
+        int ans = nums[0];
         int min = nums[0];
-        int ans = max;
-        for (int i = 1; i < nums.length; i++) { //순회하면서 max,min을 관리하며 max를 갱신. subarray여야함(consecutive)
-            
-            int temp = max;
-            max = Math.max(Math.max(nums[i], max * nums[i]),
-                            min * nums[i]);
-            min = Math.min(Math.min(nums[i], min * nums[i]),
-                            temp * nums[i]);
+        int max = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            int tmpMax = max;
+            max = Math.max(Math.max(max * nums[i], nums[i]), min * nums[i]);
+            min = Math.min(Math.min(tmpMax * nums[i], nums[i]), min * nums[i]);
             ans = Math.max(ans, max);
+            //System.out.printf("at index:%d, max=%d, min=%d, ans=%d", i, max, min, ans);
         }
         return ans;
     }
 }
 /**
-easy as freak
-선택지가 2개. 음수냐 양수냐
-그러면 두개 관리하면 됨ㅋㅋ 어디선가 본 논리지
+음수면 문제가 생긴다
+각 인덱스에 해당하는 숫자가 양수면 최댓값이랑 곱해서 업데이트
+음수도 따로 관리를 해둬야함. 
+
  */
