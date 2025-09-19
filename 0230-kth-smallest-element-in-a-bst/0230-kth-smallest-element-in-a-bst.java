@@ -14,21 +14,25 @@
  * }
  */
 class Solution {
-    List<Integer> order = new ArrayList<>();
     public int kthSmallest(TreeNode root, int k) {
-        dfs(root);
-        return order.get(k-1);
+    int[] info = new int[2];
+    info[0]= k;
+    dfs(root, info);
+    return info[1];
+
     }
-    public void dfs(TreeNode node) {
+    public void dfs(TreeNode node, int[] info) { //info[0] = cnt, info[1] answer
         if (node == null) return;
-        dfs(node.left);
-        order.add(node.val);
-        dfs(node.right);
-        return;
+        dfs(node.left, info); //preorder
+        info[0]--;
+        if (info[0] == 0) {
+            info[1] = node.val;
+            return;
+        }
+        dfs(node.right, info);
     }
 }
 /**
-bst의 inoreder 순회는 작은거부터 방문함.
-왜냐하면 inorder는 좌본우 우선순위인데
-most left node 가 가장 작음.
+idae: preorder traversal of bst.
+the order = ascending order visiting sequence
  */
