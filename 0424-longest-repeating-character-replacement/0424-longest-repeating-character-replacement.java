@@ -1,28 +1,29 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        int res = 0;
+        
         int l = 0;
-        //int r = 0;
-
-        //Map<Character, Integer> map = new HashMap<>();
         int[] freq = new int[26];
-        int maxf = 0;
+        int mostFreq = 0;
+        int ans = 0;
         for (int r = 0; r < s.length(); r++) {
-            
-            freq[s.charAt(r) - 'A'] += 1;
-
-            // for (int f : map.values()) {
-            //     maxf = Math.max(f, maxf);
-            // }
-            maxf = Math.max(maxf, freq[s.charAt(r) - 'A']);
-
-            while (r - l + 1 - maxf > k) {
-                freq[s.charAt(l) - 'A'] -= 1;
+            char c = s.charAt(r);
+            freq[c-'A']++;
+            mostFreq = Math.max(mostFreq, freq[c-'A']);
+            while (r - l + 1 - mostFreq > k) { //길이에서 최빈값 제외하면 봐줄 수 있는 갯수. k보다 작으면 안됨.
+                freq[s.charAt(l) - 'A']--;
                 l++;
             }
-            res = Math.max(res, r - l + 1);
+            ans = Math.max(ans, r - l + 1);
         }
 
-        return res;
+        return ans;
     }
 }
+/**
+substring -> two pointers
+right keeps going anyways, it's a matter of l following or not
+it can expand(l stays at the same pos). if it's allowed to expand(k restriction).
+you need to keep track of the most frequent character and you don't have to know what that is.
+    bcuz ????? <- mola
+    but you def need to know the frequency.
+ */
