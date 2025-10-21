@@ -1,32 +1,33 @@
 class Solution {
+    int[][] directions = {{-1,0},{1,0},{0,1},{0,-1}};
     int m;
     int n;
     public boolean exist(char[][] board, String word) {
         m = board.length;
-        n = board[0].length;
-        boolean[][] visited = new boolean[m][n];
+        n =  board[0].length;
+
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (!visited[i][j]) {
-                    if (dfs(board, new boolean[m][n], i, j, word, 0)) return true;
-                }
+                if (dfs(word, 0, i, j, new boolean[m][n], board)) return true;
             }
         }
         return false;
     }
-    public boolean dfs(char[][] board, boolean[][] visited, int r, int c, String word, int idx) {
-        if (r >= m || r < 0 || c >= n || c < 0 || visited[r][c]) return false;
-        if (idx == word.length() || (idx == word.length() -1  && board[r][c] == word.charAt(idx))) return true;
-        if (board[r][c] != word.charAt(idx)) return false;
-        visited[r][c] = true;
-        //sb.append(board[r][c]);
-        //System.out.printf("current: %s \n", sb.toString());
-        if (dfs(board, visited, r + 1, c, word, idx + 1) ||
-        dfs(board, visited, r -1, c, word, idx + 1) ||
-        dfs(board, visited, r, c + 1, word, idx + 1) ||
-        dfs(board, visited, r, c - 1, word, idx + 1)) return true;
+    public boolean dfs(String word, int index, int r ,int c, boolean[][] visited, char[][] board) {
+        if (index == word.length()) return true;
+        if (r < 0 || r >= m || c < 0 || c >= n) return false;
+        if (visited[r][c]) return false;
+        if (board[r][c] != word.charAt(index)) return false;
 
-        visited[r][c]=  false;
+        visited[r][c] = true;
+        for (int[] d : directions) {
+            int nr = d[0] + r;
+            int nc = d[1] + c;
+
+            if (dfs(word, index + 1, nr ,nc, visited, board)) return true;
+        }
+        visited[r][c] = false;
+
         return false;
     }
 }
