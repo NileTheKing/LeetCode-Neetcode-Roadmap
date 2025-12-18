@@ -1,0 +1,47 @@
+class Solution {
+
+    Map<Integer, List<Integer>> map = new HashMap<>();
+    Set<Integer> visited = new HashSet<>();
+    public boolean validTree(int n, int[][] edges) {
+        if (edges.length == 0) return true;
+        //graph 완성
+        for (int[] e : edges) {
+            if (!map.containsKey(e[0])) {
+                map.put(e[0], new ArrayList<>());
+            }
+            if (!map.containsKey(e[1])) {
+                map.put(e[1], new ArrayList<>());
+            }
+
+            map.get(e[0]).add(e[1]);
+            map.get(e[1]).add(e[0]);
+        }
+
+        //순회하면서 싸이클있는지 확인,
+        if (hasCycle(edges[0][0], -1, new HashSet<>())) return false;
+
+        return visited.size() == n;
+    }
+
+    public boolean hasCycle(int current, int parent, Set<Integer> visiting) {
+        if (visiting.contains(current)) return true;
+        
+        visiting.add(current);
+        for (int nei : map.getOrDefault(current, List.of())) {
+            if (nei == parent) continue; //부모에서 내려온거니까 다시가면안됨
+            if (hasCycle(nei, current, visiting)) return true;//전파
+        }
+
+        //얘는 추가
+        visited.add(current);
+        System.out.printf("visited %d\n", current);
+        return false;
+    }
+}
+/**
+valid tree: no cycle, fuully connected
+    fully connect : 
+
+1. union find
+2. cycle detection and count(visit)
+*/
