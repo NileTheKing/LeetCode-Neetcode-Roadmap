@@ -1,33 +1,35 @@
 class Solution {
     int[][] directions = {{-1,0},{1,0},{0,1},{0,-1}};
-    int m;
-    int n;
+    int m, n;
     public boolean exist(char[][] board, String word) {
         m = board.length;
-        n =  board[0].length;
-
+        n = board[0].length;
+        boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (dfs(word, 0, i, j, new boolean[m][n], board)) return true;
+                if (dfs(board, visited, i, j, 0, word)) return true;
             }
         }
         return false;
     }
-    public boolean dfs(String word, int index, int r ,int c, boolean[][] visited, char[][] board) {
-        if (index == word.length()) return true;
-        if (r < 0 || r >= m || c < 0 || c >= n) return false;
-        if (visited[r][c]) return false;
-        if (board[r][c] != word.charAt(index)) return false;
-
+    public boolean dfs(char[][] board, boolean[][] visited, int r, int c, int idx, String word) {
+        // System.out.printf("checking %d, %d to see if board[%d][%d] equals %c \n", r, c, r, c, word.charAt(idx));
+        // System.out.printf("idx = %d\n", idx);
+        if (board[r][c]  !=  word.charAt(idx)) return false;
+        if (idx == word.length() - 1) return true; //마지막 인덱스면 완성
         visited[r][c] = true;
+        // System.out.printf("Matched!visited %c\n", board[r][c]);
         for (int[] d : directions) {
-            int nr = d[0] + r;
-            int nc = d[1] + c;
-
-            if (dfs(word, index + 1, nr ,nc, visited, board)) return true;
+            int nr = r + d[0];
+            int nc = c + d[1];
+            if (nr < 0 || nr >= m || nc < 0 || nc >= n) continue;
+            if (visited[nr][nc]) continue;
+            
+            //System.out.printf("Filter passed, checking adjacent directions for %d %d \n", r, c);
+            if (dfs(board, visited, nr, nc, idx + 1, word)) return true;
+            else continue;
         }
         visited[r][c] = false;
-
         return false;
     }
 }
