@@ -21,28 +21,37 @@ class Node {
 class Solution {
     public Node cloneGraph(Node node) {
         if (node == null) return null;
-        Map<Node, Node> map = new HashMap<>(); //진,짭
-        Node current = node;//찐 진입점
-        Queue<Node> q = new LinkedList<>(); //찐 방문할 노드들
-        Set<Integer> visited = new HashSet<>(); //이미 방문했던 노드들
-        q.offer(current);
-        map.put(current, new Node(current.val));
-        visited.add(current.val);
+        Map<Node, Node> weave = new HashMap<>();
+        weave.put(node, new Node(node.val));
+        Queue<Node> q = new LinkedList<>();
+        Set<Integer> visited = new HashSet<>();
+        visited.add(node.val);
+        q.offer(node);
         while(!q.isEmpty()) {
-            Node polled = q.poll();
-            Node copy = map.get(polled);
-            //System.out.printf("copying %d\n", polled.val);
-            List<Node> copiedNei = new ArrayList<>();
-            for (Node nei : polled.neighbors) {
+            Node current = q.poll();
+            Node copiedNode = weave.get(current);
+            //System.out.printf("%d done\n", current.val);
+            List<Node> copiedNeighbors = new ArrayList<>();
+
+            
+            for (Node nei : current.neighbors) {
                 if (!visited.contains(nei.val)) {
-                    visited.add(nei.val);    
                     q.offer(nei);
+                    visited.add(nei.val);
                 }
-                if(!map.containsKey(nei)) map.put(nei, new Node(nei.val));
-                copiedNei.add(map.get(nei));
+                //if (weave.containsKey(nei)) weave.put(nei,new Node(nei.val));
+                if (!weave.containsKey(nei)) weave.put(nei, new Node(nei.val));
+                copiedNeighbors.add(weave.get(nei));
             }
-            copy.neighbors = copiedNei;
+            
+            copiedNode.neighbors = copiedNeighbors;
+            //visited.add(current.val);
         }
-        return map.get(node);
+        return weave.get(node);
     }
 }
+
+/**
+원래 생각: 미리 다 위빙을 해두고 원본 따라가면서 복사본을 연결해주기
+1go    : 매번 위빙하면서 따라가면서 복사뜨고 따라가는 애 복사본 이웃추가.
+ */
