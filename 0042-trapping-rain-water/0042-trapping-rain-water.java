@@ -1,26 +1,25 @@
 class Solution {
     public int trap(int[] height) {
-        int[] leftMax = new int[height.length];
-        int[] rightMax = new int[height.length];
-        int currentLeftMax = 0;
-        leftMax[0] = 0;
-        for (int i = 1; i < height.length; i++) {
-            leftMax[i] = Math.max(currentLeftMax, height[i-1]);
-            currentLeftMax = Math.max(currentLeftMax, height[i-1]);
-            //System.out.printf("leftMax[%d] = %d, currentLeftMax = %d\n", i, leftMax[i], currentLeftMax);
+        
+        int len = height.length;
+        int[] maxl = new int[len];
+        int[] maxr = new int[len];
+        
+        maxl[0] = Integer.MIN_VALUE;
+        for (int i = 1; i < len; i++) {
+            maxl[i] = Math.max(maxl[i - 1], height[i - 1]);
         }
-        int currentRightMax = 0;
-        rightMax[height.length - 1] = 0;
-        for (int i = height.length - 1 - 1; i >= 0; i--) {
-            rightMax[i] = Math.max(currentRightMax, height[i+1]);
-            currentRightMax = Math.max(currentRightMax, height[i+1]);
-            //System.out.printf("rightMax[%d] = %d, currentRightMax = %d\n", i, rightMax[i], currentRightMax);
+        maxr[len - 1] = Integer.MIN_VALUE;
+        for (int i = len - 1 - 1; i > 0; i--) {
+            maxr[i] = Math.max(maxr[i + 1], height[i + 1]);
         }
-
+        
         int sum = 0;
-        for (int i = 1; i < height.length; i++) {
-            int diff = Math.min(leftMax[i], rightMax[i]) - height[i];
-            if (diff > 0) sum += diff;
+        for (int i = 1; i < len - 1; i++) {
+            int min_from_maxlr = Math.min(maxl[i], maxr[i]);
+            if (height[i] >= min_from_maxlr) continue; //담을 물이 없음
+            int diff = min_from_maxlr - height[i];
+            sum += diff;
         }
         return sum;
     }
