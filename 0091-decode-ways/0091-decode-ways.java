@@ -1,50 +1,60 @@
 class Solution {
     public int numDecodings(String s) {
-        
+        int[] dp = new int[s.length()]; //dp[i] means the number of ways possible at index i
         if (s.charAt(0) == '0') return 0;
-        //dp[1]인데 10 20이면 dp[1]은 1임 나머지는 2
         if (s.length() == 1) return 1;
-        int two = Integer.parseInt(s.substring(0,2));
-        int[] dp =  new int[s.length()];
+        dp[0] = 1;
+        //dp[1]
         if (s.charAt(1) == '0') {
-            if (two >= 10 && two <= 26) {
-                dp[0] = 1;
+            if (s.charAt(0) == '1' || s.charAt(0) == '2') {
                 dp[1] = 1;
             }else {
-                dp[0] = 1;
                 dp[1] = 0;
+                //System.out.printf("check!");
             }
         }else {
-            if (two >= 10 && two <= 26) {
-                dp[0] = 1;
+            if (s.charAt(0) == '1') {
+                dp[1] = 2;
+            }else if (s.charAt(0) == '2'  && s.charAt(1) - '0' >= 1 && s.charAt(1) - '0' <= 6) {
                 dp[1] = 2;
             }else {
-                dp[0] = 1;
                 dp[1] = 1;
             }
         }
 
         for (int i = 2; i < s.length(); i++) {
-            //한글자만
-            if (s.charAt(i) != '0') {
-                //System.out.printf("one digit: %c\n", s.charAt(i));
-                dp[i] = dp[i-1];
-            }
-            //두글자
-            int twodigits = Integer.parseInt(s.substring(i-1, i+1));
-            if (twodigits >= 10 && twodigits <= 26) {
-                
-                dp[i] = dp[i] + dp[i - 2];
+            //한글자로 볼 수 있는지
+            //System.out.printf("check\n");
+            char c = s.charAt(i);
+            if (c != '0') dp[i] = dp[i-1];
+            //앞에거랑해서 2글자로 끊어지는지
+            char prev = s.charAt(i - 1);
+            if (prev == '1') {
+                dp[i] += dp[i-2];
+            }else if(prev == '2' && c - '0' >= 0 && c - '0' <= 6) {
+                dp[i] += dp[i - 2];
+            }else {
+                //System.out.printf("At %d, dp[%d] = %d\n", i, i, dp[i]);
+                continue;
             }
         }
+        // System.out.printf("dp[0] == %d\n", dp[0]);
+        // System.out.printf("dp[1] == %d\n", dp[1]);
         return dp[s.length() - 1];
+        
+        
     }
 }
 /**
-dp[i] 는 해당인덱스까지 할 수 있는 방법
-dp[s.length() - 1] 인덱스가 정답
+2101
+
+2
+2/1
+21
+2/10
+
+2/10/1
 
 
-226
 
  */
