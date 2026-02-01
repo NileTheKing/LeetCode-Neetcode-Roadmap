@@ -1,34 +1,24 @@
 class Solution {
-    Map<Integer, Node> map = new HashMap<>(); //매핑
     public int[] findRedundantConnection(int[][] edges) {
-        
-        //초기값
+        Map<Integer, Node> map = new HashMap<>();
         for (int[] e : edges) {
             if (!map.containsKey(e[0])) {
-                Node node = new Node(e[0]);
-                node.parent = node;
-                map.put(e[0], node);
+                Node n1 = new Node(e[0]);
+                n1.parent = n1;
+                map.put(e[0], n1);
             }
             if (!map.containsKey(e[1])) {
-                Node node = new Node(e[1]);
-                node.parent = node;
-                map.put(e[1], node);
+                Node n2 = new Node(e[1]);
+                n2.parent = n2;
+                map.put(e[1], n2);
+            }
+
+            if (find(map.get(e[1])).val == find(map.get(e[0])).val) {
+                return new int[] {e[0], e[1]};
+            }else {
+                union(map.get(e[0]), map.get(e[1]));
             }
         }
-
-
-        //순회하면서 합치는데 언제 안합치나? 둘의 부모가 같으면 .. 다
-        for (int[] e : edges) {
-            Node root1 = find(map.get(e[0]));
-            Node root2 = find(map.get(e[1]));
-
-            //root값이 동일 -> 이미 연결되어있음
-            if (root1.val == root2.val) return new int[] {e[0], e[1]};
-            else { //아니라면 합치고 계속
-                union(root1, root2);
-            }
-        }
-
         return new int[0];
 
     }
@@ -39,22 +29,21 @@ class Solution {
             this.val = val;
         }
     }
-
-    public Node find(Node n) {
-        
-        if (n.val == n.parent.val) return n;
-        else return find(n.parent);
-    }
-    public void union(Node n1, Node n2) { //n1에 n2를 병합
-        Node root1 = find(n1);
-        Node root2 = find(n2);
-
-        root2.parent = root1;
+    public void union(Node n1, Node n2) { 
+        Node p2 = find(n2);
+        Node p1 = find(n1);
+        p2.parent = p1;
         return;
     }
-
-    /**
-    
-    unionfind에서 사이클 나오는 경우?
-     */
+    public Node find(Node n) {
+        if (n.val == n.parent.val) return n;
+        else {
+            n.parent = find(n.parent);
+            return n.parent;
+        }
+    }
 }
+/**
+1. union find
+2. cycle detection (dfs)
+ */
