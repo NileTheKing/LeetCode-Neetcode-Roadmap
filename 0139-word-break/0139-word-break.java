@@ -1,15 +1,22 @@
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
-        boolean[] dp = new boolean[s.length() + 1]; //dp[i]는 s의 i인덱스 이전까지 된다 이뜻
-        dp[0] = true;
-
-        for (int i = 1; i <= s.length(); i++) {
-            for (String w : wordDict) {
-                int length = w.length();
-                if (i - length >= 0 && dp[i-length] && s.substring(i-length, i).equals(w)) //i-length-1인덱스까지 되는거면 현재 dp[i]즉 s에서 i-1인덱스까지 되냐보는거
+        int len = s.length();
+        boolean[] dp = new boolean[len + 1]; //dp[3] -> 3글자까지 가능
+        dp[0] = true; //0은 된다고 하고 시작
+        for (int i = 1; i <= len; i++) {
+            for (String str : wordDict) {
+                int sLen = str.length();
+                if (i - sLen < 0) continue; //bound 예외 처리
+                if (dp[i - sLen] && s.substring(i - sLen, i).equals(str)){ // i글자에서 가능한거니까 인덱스는 i-1에서 잘리면됨.substring기본 작동이 그ㅓ니까 맞음
+                    System.out.printf("dp[%d] = true\n", i);
                     dp[i] = true;
+                    }
             }
         }
-        return dp[s.length()];
+        return dp[len];
     }
 }
+/**
+wordDict에 있는 것들로 s를 만들면 됨.
+이거는 dp. 기존 재활용하는 게 있으므로.memoization
+ */
