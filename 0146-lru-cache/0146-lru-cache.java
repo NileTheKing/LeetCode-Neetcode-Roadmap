@@ -1,84 +1,68 @@
 class LRUCache {
-    int capacity;
-    Node head; //mru
-    Node tail; //lru
     Map<Integer, Node> map;
+    int capacity;
+    Node head;
+    Node tail;
     public LRUCache(int capacity) {
-        map = new HashMap<>();
         this.capacity = capacity;
-        head = new Node(-1, -1);
-        tail = new Node(-1, -1);
+        map = new HashMap<>();
+        head = new Node(0,0);
+        tail = new Node(0,0);
         head.next = tail;
         tail.prev = head;
     }
     
     public int get(int key) {
-        if (map.containsKey(key)) {
-            //mru로
-            Node n = map.get(key);
-            delete(n);
-            insert(n);
-            return map.get(key).val;
-        }
-        else return -1;
+        //map에서 찾아가지고 값 리턴
+        //head업데이트
+        Node node = map.get(key);
+        if (node == null) return -1;
+        delete(node);
+        insert(node);
+        return node.val;
     }
     
     public void put(int key, int value) {
-        //사이즈도 보고 중복도 보고 삽입.
-        //사이즈랑 중복중에 무엇을 먼저 보나? 예를 들어 크기가 최대인데 put하면 그냥 해야되지 그럼 일단 중복먼저지.
-        //만약 사이즈를 먼저 보면 lru가 지워지고 나서 put이 되기 때문에 원치 않는 연산이 수행됨
-        if (map.containsKey(key)) { //중복 처리. 새로 값 넣고 delete insert
-            //System.out.println("duplicate detected: " + key);
 
+        //기존 키 존재한다면
+        if (map.containsKey(key)) {
             delete(map.get(key));
-            map.remove(key);
-            Node n = new Node(key,value);
-            insert(n);
-            map.put(key, n);
-            return;
         }
-        if (map.size() == capacity) { //lru 삭제하고(map에서도 지우고 리스트에서도 지우고), map과 list에 추가
-        
-            Node n = tail.prev; // 삭제될 노드
-            //System.out.print("deleting: " + n.key + " due to capcity-over, ");
-            delete(n);
-            map.remove(n.key);
-            //System.out.println("and putting:" + key + " after.");
-            map.put(key, new Node(key,value));
-            insert(map.get(key));
-            return;
+        //크기떄문에 못 넣는 경우 자리 만들어주기
+        else if(map.size() >= capacity) {
+            Node toBeDeleted = tail.prev;
+            delete(toBeDeleted);
+            map.remove(toBeDeleted.key);
         }
-        Node n = new Node(key, value);
-        map.put(key, n);
-        insert(n);
+        Node add = new Node(key, value);
+        insert(add);
+        map.put(key, add);
     }
-
     public class Node {
         int key;
         int val;
         Node next;
         Node prev;
-
-        Node (int key, int val) {
+        Node(int key, int val) {
             this.key = key;
             this.val = val;
+            next = null;
+            prev = null;//초기값
         }
     }
-    public void delete(Node node) { //연결리스트에ㅓㅅ 가운데든 마지막이든 지우는 기능
-        //prev node next 를 prev next로 바꿔야함
-        Node prev = node.prev;
-        prev.next = node.next;
-        node.next.prev = prev; 
-        //return node;
+    public void delete(Node n) {
+        Node prev = n.prev;
+        Node next = n.next;
+        prev.next = next;
+        next.prev = prev;
     }
-    public void insert(Node node) {//맨앞에 삽입. head, tail 관리
-        //head head.next head.next.next를 head node head.next로 바꿔야함
-        Node head_next=  head.next;
-
-        head.next = node;
-        node.prev = head;
-        node.next = head_next;
-        head_next.prev = node;
+    public void insert(Node n) {
+        //head og -> head n og
+        Node og = head.next;
+        head.next = n;
+        n.prev = head;
+        n.next = og;
+        og.prev = n;
     }
 }
 
