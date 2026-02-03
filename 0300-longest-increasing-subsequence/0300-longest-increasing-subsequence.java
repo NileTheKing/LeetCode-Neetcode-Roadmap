@@ -1,15 +1,24 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
+        int max = 1;
+        int len = nums.length;
         int[] dp = new int[nums.length];
         Arrays.fill(dp, 1);
-        //dp[i] 는 i전까지 길이? 이거는 근데 점화식이 딱히.. 1이니까 할 필요가 없지 않나?
-
-        for (int i = 0; i < nums.length; i++) { //i는 nums인덱스
+        for (int i = 0; i < len; i++) {
             for (int j = 0; j < i; j++) {
-                //System.out.printf("i,j: %d %d\n", i,j);
-                if (nums[i] > nums[j]) dp[i] = Math.max(dp[j] + 1, dp[i]);
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                    max = Math.max(max, dp[i]);
+                }
             }
         }
-        return Arrays.stream(dp).max().getAsInt();
+        return max;
+
     }
 }
+/**
+재활용 가능?
+모두 1로 초기화
+매번 앞에부터.
+
+ */
