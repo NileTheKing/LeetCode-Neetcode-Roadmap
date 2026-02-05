@@ -15,24 +15,25 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
-    int[] info = new int[2];
-    info[0]= k;
-    dfs(root, info);
-    return info[1];
-
+        //info[0] == current count, info[1] == ans
+        int[] info = new int[2];
+        info[0] = 0;
+        inorder(root, info, k);
+        return info[1];
     }
-    public void dfs(TreeNode node, int[] info) { //info[0] = cnt, info[1] answer
+    public void inorder(TreeNode node, int[] info, int k) {
         if (node == null) return;
-        dfs(node.left, info); //preorder
-        info[0]--;
-        if (info[0] == 0) {
+        //System.out.printf("visiting %d\n", node.val);
+        //left
+        inorder(node.left, info, k);
+        //self
+        info[0]++;
+        //System.out.printf("visiting %d, count = %d\n", node.val, info[0]);
+        if (info[0] == k) {
             info[1] = node.val;
             return;
         }
-        dfs(node.right, info);
+        //right
+        inorder(node.right, info, k);
     }
 }
-/**
-idae: preorder traversal of bst.
-the order = ascending order visiting sequence
- */
