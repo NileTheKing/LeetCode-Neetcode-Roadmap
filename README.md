@@ -14,10 +14,12 @@ problem list: https://neetcode.io/roadmap
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0046-permutations](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0046-permutations/) | Medium |
 | [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0046-permutations](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0046-permutations/) | Medium |
 | [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
 ## Bit Manipulation
 | Problem Name | Difficulty |
