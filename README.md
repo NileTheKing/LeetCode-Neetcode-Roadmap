@@ -11,4 +11,16 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0185-department-top-three-salaries](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0185-department-top-three-salaries/) | Hard |
 | [0601-human-traffic-of-stadium](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0601-human-traffic-of-stadium/) | Hard |
+## Array
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
+## Backtracking
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
+## Bit Manipulation
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
 <!---LeetCode Topics End-->
