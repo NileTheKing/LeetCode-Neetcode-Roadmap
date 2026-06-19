@@ -1,31 +1,18 @@
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
-        Stack<Integer> mono = new Stack<>();
-        int length = temperatures.length;
-        int[] ans = new int[length];
-        mono.push(0);
-
-        for (int i = 1; i < length; i++) {
-            //대소 비교해서 다 끄집어 낸다음에 인덱스 정보 구함
-            int idx = i;
-            while (!mono.isEmpty() && temperatures[mono.peek()] < temperatures[i]) {//73 74 75 입력받고 71입력받으면
-            //
-                idx = mono.pop();
-                ans[idx] = i - idx;
+        //on^2 불가능. 선형 자료구조중에 채택해서 시간복잡도를 줄인다 공간복잡도를 사용하고
+        ArrayDeque<Integer> stk = new ArrayDeque<>(); //인덱스 들고있는 모노스택
+        int[] ans = new int[temperatures.length];
+        for (int i = 0; i < temperatures.length; i++) {
+            int currentT = temperatures[i];
+            // System.out.printf("===%d %d===\n", i, currentT);
+            while (!stk.isEmpty() && temperatures[stk.peekFirst()] < currentT) {
+                int popped = stk.pollFirst();
+                ans[popped] = i - popped;
+                // System.out.printf("ans[%d] = %d\n", popped, ans[popped]);
             }
-
-            //인덱스 정보 넣기. 끄집어 내진놈
-            mono.push(i);
+            stk.offerFirst(i);
         }
-
         return ans;
     }
 }
-/**
-mono: 73
-current 74
-current 75
-current 
-
-question is mono.peek() > current OR mono.peek() < current
- */
