@@ -35,11 +35,13 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0001-two-sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0001-two-sum/) | Easy |
+| [0003-longest-substring-without-repeating-characters](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 ## String
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0003-longest-substring-without-repeating-characters](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
 ## Sorting
 | Problem Name | Difficulty |
@@ -66,4 +68,8 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
+## Sliding Window
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0003-longest-substring-without-repeating-characters](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 <!---LeetCode Topics End-->
