@@ -22,6 +22,7 @@ problem list: https://neetcode.io/roadmap
 | [0090-subsets-ii](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0090-subsets-ii/) | Medium |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
+| [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -88,4 +89,9 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0020-valid-parentheses](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0020-valid-parentheses/) | Easy |
+| [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
+## Monotonic Stack
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
 <!---LeetCode Topics End-->
