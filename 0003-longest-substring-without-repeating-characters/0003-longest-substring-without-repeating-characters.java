@@ -1,24 +1,18 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
+        int len = s.length();
         int l = 0;
-        int r = 0;
+        Set<Character> set = new HashSet<>();
         int max = 0;
-
-        HashSet<Character> set = new HashSet<>();
-
-        while (r < s.length()) {
-            char c = s.charAt(r); //새로 확인 중인 문자
-    
-            
-            while (set.contains(c) && l < r) {
-                //ystem.out.println("set contains " + c);
+        for (int i = 0; i < len; i++) {
+            int r = i;
+            char c = s.charAt(r);
+            while (set.contains(c)) {
                 set.remove(s.charAt(l));
                 l++;
             }
-
             set.add(c);
             max = Math.max(max, r - l + 1);
-            r++;
         }
 
         return max;
