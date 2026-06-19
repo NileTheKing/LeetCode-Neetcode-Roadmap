@@ -16,6 +16,7 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0001-two-sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0001-two-sum/) | Easy |
 | [0046-permutations](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0046-permutations/) | Medium |
+| [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
 | [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
 | [0090-subsets-ii](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0090-subsets-ii/) | Medium |
 ## Backtracking
@@ -33,4 +34,13 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0001-two-sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0001-two-sum/) | Easy |
+| [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
+## String
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
+## Sorting
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
 <!---LeetCode Topics End-->
