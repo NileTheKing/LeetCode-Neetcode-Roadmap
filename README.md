@@ -44,6 +44,7 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
+| [0020-valid-parentheses](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0020-valid-parentheses/) | Easy |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
 ## Sorting
 | Problem Name | Difficulty |
@@ -83,4 +84,8 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0015-3sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0015-3sum/) | Medium |
+## Stack
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0020-valid-parentheses](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0020-valid-parentheses/) | Easy |
 <!---LeetCode Topics End-->
