@@ -19,6 +19,7 @@ problem list: https://neetcode.io/roadmap
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
 | [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
 | [0090-subsets-ii](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0090-subsets-ii/) | Medium |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 ## Backtracking
 | Problem Name | Difficulty |
@@ -72,4 +73,8 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
+## Dynamic Programming
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 <!---LeetCode Topics End-->
