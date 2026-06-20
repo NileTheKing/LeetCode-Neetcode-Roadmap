@@ -2,24 +2,21 @@ class Solution {
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
         List<int[]> ans = new ArrayList<>();
-        boolean[] processed = new boolean[intervals.length];
-        for (int i = 0; i < intervals.length; i++) {
-            if (processed[i]) continue;
-            int start = intervals[i][0];
-            int end = intervals[i][1];
-            for (int j = i + 1; j < intervals.length; j++) {
-                if (!processed[j] && intervals[j][0] <= end) {
-                    end = Math.max(end, intervals[j][1]);
-                    processed[j] = true;
-                }
+        int ptr = 0; //할 얘
+        while (ptr < intervals.length) {
+            int tmp = ptr + 1;
+            int start = intervals[ptr][0];
+            int end = intervals[ptr][1];
+            while (tmp < intervals.length && intervals[tmp][0] <= end) {
+                end = Math.max(end, intervals[tmp][1]);
+                tmp++;
             }
-            processed[i] = true;
             ans.add(new int[] {start, end});
+            ptr = tmp;
         }
-
         return ans.toArray(new int[0][]);
     }
 }
 /**
-정렬후 계속 될떄까지 확인해봐야하는데.. 그냥 o(n^2)
+n^2
  */
