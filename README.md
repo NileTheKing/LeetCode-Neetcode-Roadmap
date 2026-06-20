@@ -19,6 +19,7 @@ problem list: https://neetcode.io/roadmap
 | [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 | [0046-permutations](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0046-permutations/) | Medium |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
+| [0056-merge-intervals](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0056-merge-intervals/) | Medium |
 | [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
 | [0090-subsets-ii](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0090-subsets-ii/) | Medium |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
@@ -53,6 +54,7 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0015-3sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0015-3sum/) | Medium |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
+| [0056-merge-intervals](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0056-merge-intervals/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 ## Divide and Conquer
 | Problem Name | Difficulty |
