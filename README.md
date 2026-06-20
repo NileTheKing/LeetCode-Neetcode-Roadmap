@@ -23,6 +23,7 @@ problem list: https://neetcode.io/roadmap
 | [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
 | [0090-subsets-ii](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0090-subsets-ii/) | Medium |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
+| [0179-largest-number](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0179-largest-number/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
 ## Backtracking
@@ -49,12 +50,14 @@ problem list: https://neetcode.io/roadmap
 | [0003-longest-substring-without-repeating-characters](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0020-valid-parentheses](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0020-valid-parentheses/) | Easy |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
+| [0179-largest-number](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0179-largest-number/) | Medium |
 ## Sorting
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0015-3sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0015-3sum/) | Medium |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
 | [0056-merge-intervals](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0056-merge-intervals/) | Medium |
+| [0179-largest-number](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0179-largest-number/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 ## Divide and Conquer
 | Problem Name | Difficulty |
@@ -101,4 +104,8 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 | [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
+## Greedy
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0179-largest-number](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0179-largest-number/) | Medium |
 <!---LeetCode Topics End-->
