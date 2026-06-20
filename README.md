@@ -16,6 +16,7 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0001-two-sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0001-two-sum/) | Easy |
 | [0015-3sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0015-3sum/) | Medium |
+| [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 | [0046-permutations](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0046-permutations/) | Medium |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
 | [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
@@ -80,18 +81,22 @@ problem list: https://neetcode.io/roadmap
 ## Dynamic Programming
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 ## Two Pointers
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0015-3sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0015-3sum/) | Medium |
+| [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 ## Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0020-valid-parentheses](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0020-valid-parentheses/) | Easy |
+| [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 | [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
 ## Monotonic Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 | [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
 <!---LeetCode Topics End-->
