@@ -1,4 +1,4 @@
-/*
+ /*
 // Definition for a Node.
 class Node {
     public int val;
@@ -21,28 +21,27 @@ class Node {
 class Solution {
     public Node cloneGraph(Node node) {
         if (node == null) return null;
+        Map<Node, Node> weave = new HashMap<>();
+        //Map<Integer, Node> map = new HashMap<>()
         Queue<Node> q = new LinkedList<>();
-        Map<Node, Node> map = new HashMap<>();
         Set<Integer> visited = new HashSet<>();
         q.offer(node);
-        map.put(node, new Node(node.val));
         visited.add(node.val);
+        weave.put(node, new Node(node.val));
         while (!q.isEmpty()) {
-            Node poll = q.poll();
-            Node copied = map.get(poll);
-            // System.out.printf("copying %d\n", poll.val);
-            List<Node> copiedNei = new ArrayList<>();
-            
-            for (Node nei : poll.neighbors) {
-                if (!visited.contains(nei.val)) {
-                    visited.add(nei.val);
-                    q.offer(nei);
-                }
-                map.computeIfAbsent(nei, k -> new Node(k.val));
-                copiedNei.add(map.get(nei));
+            Node polled = q.poll();
+            System.out.printf("===copying %d====\n", polled.val);
+            List<Node> copiedNeigh = new ArrayList<>();
+            List<Node> candidatesNeighbors = polled.neighbors;
+            for (Node nei : candidatesNeighbors) {
+                weave.computeIfAbsent(nei, k -> new Node(nei.val));
+                copiedNeigh.add(weave.get(nei));
+                if (!visited.contains(nei.val)) q.offer(nei);
+                visited.add(nei.val);
+                System.out.printf("added %d\n", nei.val);
             }
-            copied.neighbors = copiedNei;
+            weave.get(polled).neighbors = copiedNeigh;
         }
-        return map.get(node);
+        return weave.get(node);
     }
 }
