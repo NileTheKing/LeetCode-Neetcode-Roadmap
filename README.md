@@ -117,6 +117,7 @@ problem list: https://neetcode.io/roadmap
 | [0133-clone-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0133-clone-graph/) | Medium |
 | [0200-number-of-islands](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0200-number-of-islands/) | Medium |
 | [0207-course-schedule](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0207-course-schedule/) | Medium |
+| [0543-diameter-of-binary-tree](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0543-diameter-of-binary-tree/) | Easy |
 ## Breadth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -145,8 +146,10 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0104-maximum-depth-of-binary-tree](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0104-maximum-depth-of-binary-tree/) | Easy |
+| [0543-diameter-of-binary-tree](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0543-diameter-of-binary-tree/) | Easy |
 ## Binary Tree
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0104-maximum-depth-of-binary-tree](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0104-maximum-depth-of-binary-tree/) | Easy |
+| [0543-diameter-of-binary-tree](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0543-diameter-of-binary-tree/) | Easy |
 <!---LeetCode Topics End-->
