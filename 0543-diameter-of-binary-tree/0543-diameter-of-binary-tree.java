@@ -19,19 +19,17 @@ class Solution {
         helper(root);
         return max;
     }
-    public void helper(TreeNode root) {
-        if (root == null) return;
-        int left = getDepth(root.left);
-        int right = getDepth(root.right);
+    public int helper(TreeNode root) {
+        if (root == null) return 0;
+        int left = helper(root.left);
+        int right = helper(root.right);
         max = Math.max(max, left + right);
-        helper(root.left);
-        helper(root.right);
-        return;
+        return Math.max(left, right) + 1;
     }
-    public int getDepth(TreeNode node) {
-        if (node == null) return 0;
-        return Math.max(getDepth(node.left), getDepth(node.right)) + 1;
-    }
+    // public int getDepth(TreeNode node) {
+    //     if (node == null) return 0;
+    //     return Math.max(getDepth(node.left), getDepth(node.right)) + 1;
+    // }
 }
 /**
 헷갈리는지점
