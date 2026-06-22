@@ -44,6 +44,7 @@ problem list: https://neetcode.io/roadmap
 | [0001-two-sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0001-two-sum/) | Easy |
 | [0003-longest-substring-without-repeating-characters](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0049-group-anagrams](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0049-group-anagrams/) | Medium |
+| [0133-clone-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0133-clone-graph/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 ## String
 | Problem Name | Difficulty |
@@ -112,11 +113,13 @@ problem list: https://neetcode.io/roadmap
 ## Depth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0133-clone-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0133-clone-graph/) | Medium |
 | [0200-number-of-islands](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0200-number-of-islands/) | Medium |
 | [0207-course-schedule](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0207-course-schedule/) | Medium |
 ## Breadth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0133-clone-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0133-clone-graph/) | Medium |
 | [0200-number-of-islands](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0200-number-of-islands/) | Medium |
 | [0207-course-schedule](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0207-course-schedule/) | Medium |
 ## Union-Find
@@ -130,6 +133,7 @@ problem list: https://neetcode.io/roadmap
 ## Graph Theory
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0133-clone-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0133-clone-graph/) | Medium |
 | [0207-course-schedule](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0207-course-schedule/) | Medium |
 ## Topological Sort
 | Problem Name | Difficulty |
