@@ -27,6 +27,7 @@ problem list: https://neetcode.io/roadmap
 | [0200-number-of-islands](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0200-number-of-islands/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
+| [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -129,6 +130,7 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0200-number-of-islands](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0200-number-of-islands/) | Medium |
+| [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
 ## Matrix
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -138,6 +140,7 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0133-clone-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0133-clone-graph/) | Medium |
 | [0207-course-schedule](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0207-course-schedule/) | Medium |
+| [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
 ## Topological Sort
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -152,4 +155,8 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0104-maximum-depth-of-binary-tree](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0104-maximum-depth-of-binary-tree/) | Easy |
 | [0543-diameter-of-binary-tree](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0543-diameter-of-binary-tree/) | Easy |
+## Minimum Spanning Tree
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
 <!---LeetCode Topics End-->
