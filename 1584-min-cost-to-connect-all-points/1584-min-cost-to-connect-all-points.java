@@ -18,7 +18,7 @@ class Solution {
         boolean[] visited = new boolean[points.length];
         int limit = 0;
         int ans = 0;
-        while (!pq.isEmpty() && limit < points.length) {
+        while (!pq.isEmpty()) {
             int[] polled = pq.poll();
             if (visited[polled[0]]) continue;
             limit++;
