@@ -15,6 +15,7 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0001-two-sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0001-two-sum/) | Easy |
+| [0011-container-with-most-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0011-container-with-most-water/) | Medium |
 | [0015-3sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0015-3sum/) | Medium |
 | [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 | [0046-permutations](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0046-permutations/) | Medium |
@@ -96,6 +97,7 @@ problem list: https://neetcode.io/roadmap
 ## Two Pointers
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0011-container-with-most-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0011-container-with-most-water/) | Medium |
 | [0015-3sum](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0015-3sum/) | Medium |
 | [0042-trapping-rain-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0042-trapping-rain-water/) | Hard |
 ## Stack
@@ -112,6 +114,7 @@ problem list: https://neetcode.io/roadmap
 ## Greedy
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0011-container-with-most-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0011-container-with-most-water/) | Medium |
 | [0179-largest-number](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0179-largest-number/) | Medium |
 ## Depth-First Search
 | Problem Name | Difficulty |
