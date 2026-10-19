@@ -30,6 +30,7 @@ problem list: https://neetcode.io/roadmap
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
 | [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
+| [1665-minimum-initial-energy-to-finish-tasks](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -65,6 +66,7 @@ problem list: https://neetcode.io/roadmap
 | [0056-merge-intervals](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0056-merge-intervals/) | Medium |
 | [0179-largest-number](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0179-largest-number/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
+| [1665-minimum-initial-energy-to-finish-tasks](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
 ## Divide and Conquer
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -116,6 +118,7 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0011-container-with-most-water](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0011-container-with-most-water/) | Medium |
 | [0179-largest-number](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0179-largest-number/) | Medium |
+| [1665-minimum-initial-energy-to-finish-tasks](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
 ## Depth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
