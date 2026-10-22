@@ -1,31 +1,19 @@
-    class Solution {
-        public int longestConsecutive(int[] nums) {
-            if (nums.length == 0) return 0;
-            Set<Integer> set = new HashSet<>();
-            for (int n : nums) {
-                set.add(n);
-            }
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int n : nums) set.add(n);
 
-            int max = 1;
-            for (int n  : set) {
-                if (set.contains(n - 1)) continue;
-                int currentStreak = 1;
-                int currentNumber = n;
-                while (set.contains(currentNumber + 1)) {
-                    currentNumber++;
-                    currentStreak++;
-                }
-                max = Math.max(max, currentStreak);
+        int max = 0;
+        for (int n : set) {
+            if (set.contains(n - 1)) continue;
+            int next = n + 1;
+            int streak = 1;
+            while (set.contains(next)) {
+                streak++;
+                next++;
             }
-            return max;
+            max = Math.max(streak, max);
         }
+        return max;
     }
-    /**
-    정렬안됨
-    1go
-    hash써야할듯
-
-    만약 다넣어
-    그러고 확인
-
-    */
+}
