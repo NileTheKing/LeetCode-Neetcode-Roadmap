@@ -31,6 +31,7 @@ problem list: https://neetcode.io/roadmap
 | [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
 | [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
 | [1665-minimum-initial-energy-to-finish-tasks](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
+| [1882-process-tasks-using-servers](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1882-process-tasks-using-servers/) | Medium |
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -75,6 +76,7 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
+| [1882-process-tasks-using-servers](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1882-process-tasks-using-servers/) | Medium |
 ## Bucket Sort
 | Problem Name | Difficulty |
 | ------- | ------- |
