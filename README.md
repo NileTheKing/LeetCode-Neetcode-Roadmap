@@ -29,6 +29,7 @@ problem list: https://neetcode.io/roadmap
 | [0200-number-of-islands](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0200-number-of-islands/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [0739-daily-temperatures](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0739-daily-temperatures/) | Medium |
+| [0864-shortest-path-to-get-all-keys](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0864-shortest-path-to-get-all-keys/) | Hard |
 | [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
 | [1665-minimum-initial-energy-to-finish-tasks](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
 | [1882-process-tasks-using-servers](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1882-process-tasks-using-servers/) | Medium |
@@ -43,6 +44,7 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0078-subsets](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0078-subsets/) | Medium |
 | [0090-subsets-ii](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0090-subsets-ii/) | Medium |
+| [0864-shortest-path-to-get-all-keys](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0864-shortest-path-to-get-all-keys/) | Hard |
 ## Hash Table
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -136,6 +138,7 @@ problem list: https://neetcode.io/roadmap
 | [0133-clone-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0133-clone-graph/) | Medium |
 | [0200-number-of-islands](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0200-number-of-islands/) | Medium |
 | [0207-course-schedule](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0207-course-schedule/) | Medium |
+| [0864-shortest-path-to-get-all-keys](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0864-shortest-path-to-get-all-keys/) | Hard |
 ## Union-Find
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -146,6 +149,7 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0200-number-of-islands](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0200-number-of-islands/) | Medium |
+| [0864-shortest-path-to-get-all-keys](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0864-shortest-path-to-get-all-keys/) | Hard |
 ## Graph Theory
 | Problem Name | Difficulty |
 | ------- | ------- |
