@@ -29,7 +29,7 @@ class Solution {
             int size = q.size();
             for (int i = 0; i < size; i++) {
                 int[] polled = q.poll();
-                System.out.printf("(%d,%d),status:%d, step:%d\n", polled[0],polled[1],polled[2],polled[3]);
+                // System.out.printf("(%d,%d),status:%d, step:%d\n", polled[0],polled[1],polled[2],polled[3]);
                 for (int[] d : directions) {
                     int polledKeyStatus = polled[2];
                     int nr = d[0] + polled[0];
