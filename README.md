@@ -79,6 +79,7 @@ problem list: https://neetcode.io/roadmap
 | ------- | ------- |
 | [0347-top-k-frequent-elements](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [1882-process-tasks-using-servers](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1882-process-tasks-using-servers/) | Medium |
+| [3604-minimum-time-to-reach-destination-in-directed-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/3604-minimum-time-to-reach-destination-in-directed-graph/) | Medium |
 ## Bucket Sort
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -156,6 +157,7 @@ problem list: https://neetcode.io/roadmap
 | [0133-clone-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0133-clone-graph/) | Medium |
 | [0207-course-schedule](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/0207-course-schedule/) | Medium |
 | [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
+| [3604-minimum-time-to-reach-destination-in-directed-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/3604-minimum-time-to-reach-destination-in-directed-graph/) | Medium |
 ## Topological Sort
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -174,4 +176,8 @@ problem list: https://neetcode.io/roadmap
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [1584-min-cost-to-connect-all-points](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/1584-min-cost-to-connect-all-points/) | Medium |
+## Shortest Path
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [3604-minimum-time-to-reach-destination-in-directed-graph](https://github.com/NileTheKing/LeetCode-Neetcode-Roadmap/tree/main/3604-minimum-time-to-reach-destination-in-directed-graph/) | Medium |
 <!---LeetCode Topics End-->
